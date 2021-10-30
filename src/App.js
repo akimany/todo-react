@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+
+  
+    // todoList.push(document.getElementById('enterTask').value);
+  
+
+const App = () => {
+
+  const [listItem, setListItem] = useState('test')
+  console.log(listItem);
+  const [todoList, setList] = useState([])
+
+
+  const handleChange = (event) => setListItem(event.targt.value)
+  const handleAdd = (event) =>  setList(event.target.value)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+        <input type="text" value={listItem} onChange={handleChange} />
+
+        <button onClick={handleAdd}>Add</button>
+        {console.log(todoList)}
+        <ul>
+          {
+          todoList.map((elem) => {
+            return <li key="">{elem}</li>
+          })
+          }
+        </ul>
+      
     </div>
   );
 }
