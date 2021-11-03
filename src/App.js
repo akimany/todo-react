@@ -26,10 +26,24 @@ const App = () => {
       }          
     }
 
-  return (
-    <div className="App">
+    const AddItem = ({listItem, onChange, onAdd}) => (
+      <div>
         <input type="text" value={listItem} onChange={handleChange} />
         <button type="button" onClick={handleAdd}>Add</button>
+      </div>
+    )
+
+    const List = (list) => {
+      //WORK ON SEPERATING THE LIST
+    }
+
+  return (
+    <div className="App">
+
+        <AddItem listItem={listItem} onChange={handleChange} onAdd={handleAdd} />
+        
+        <List list={todoList} />
+
         <ul>
           <PrintListItem List={todoList} />
         </ul>
